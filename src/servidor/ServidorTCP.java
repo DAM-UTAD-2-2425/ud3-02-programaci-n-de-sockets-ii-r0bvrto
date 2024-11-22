@@ -72,29 +72,33 @@ public class ServidorTCP {
 	 * @return Debe devolver una de las posibles respuestas configuradas
 	 */
 	public String comprobarBoleto(String linea) {
-		
-		String[] num = linea.split(" ");
-
-		int[] boleto = new int[6];
-		for (int i = 0; i < 6; i++) {
-			boleto[i] = Integer.parseInt(num[i]);
-			if (boleto[i] < 1 || boleto[i] > 49) {
-				return respuesta[1];
-			}
-		}
-
-		for (int i = 0; i < boleto.length; i++) {
-			for (int j = i + 1; j < boleto.length; j++) {
-				if (boleto[i] == boleto[j]) {
-					return respuesta[0];
+		try {
+			String[] num = linea.split(" ");
+			int[] boleto = new int[6];
+			for (int i = 0; i < 6; i++) {
+				boleto[i] = Integer.parseInt(num[i]);
+				if (boleto[i] < 1 || boleto[i] > 49) {
+					return respuesta[1];
 				}
 			}
+
+			for (int i = 0; i < boleto.length; i++) {
+				for (int j = i + 1; j < boleto.length; j++) {
+					if (boleto[i] == boleto[j]) {
+						return respuesta[0];
+					}
+				}
+			}
+			return acierto(boleto);
+
+		} catch (NullPointerException e) {
+			System.exit(0);
+			return "Saliendo";
 		}
-		return acierto(boleto);
 
 	}
-	
-	//Con este metodo comprobamos los aciertos que tiene el boleto
+
+	// Con este metodo comprobamos los aciertos que tiene el boleto
 	public String acierto(int[] boleto) {
 		int aciertos = 0;
 		for (int i = 0; i < boleto.length; i++) {
