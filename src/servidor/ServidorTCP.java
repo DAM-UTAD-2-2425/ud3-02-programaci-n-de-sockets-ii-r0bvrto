@@ -72,7 +72,7 @@ public class ServidorTCP {
 	 * @return Debe devolver una de las posibles respuestas configuradas
 	 */
 	public String comprobarBoleto(String linea) {
-
+		
 		String[] num = linea.split(" ");
 
 		int[] boleto = new int[6];
