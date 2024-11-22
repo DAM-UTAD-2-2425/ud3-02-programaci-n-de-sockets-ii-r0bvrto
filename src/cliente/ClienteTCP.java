@@ -16,6 +16,7 @@ public class ClienteTCP {
 	private Socket socketCliente = null;
 	private BufferedReader entrada = null;
 	private PrintWriter salida = null;
+
 	/**
 	 * Constructor
 	 */
@@ -51,7 +52,7 @@ public class ClienteTCP {
 	/**
 	 * Sirve para finalizar la la conexi�n de Cliente y Servidor
 	 */
-	public void finSesion () {
+	public void finSesion() {
 		try {
 			socketCliente.close();
 			entrada.close();
@@ -61,7 +62,7 @@ public class ClienteTCP {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 }

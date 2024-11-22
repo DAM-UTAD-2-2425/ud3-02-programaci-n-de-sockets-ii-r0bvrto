@@ -79,23 +79,21 @@ public class ServidorTCP {
 		for (int i = 0; i < 6; i++) {
 			boleto[i] = Integer.parseInt(num[i]);
 			if (boleto[i] < 1 || boleto[i] > 49) {
-				return this.respuesta[1];
+				return respuesta[1];
 			}
 		}
 
 		for (int i = 0; i < boleto.length; i++) {
 			for (int j = i + 1; j < boleto.length; j++) {
 				if (boleto[i] == boleto[j]) {
-					return this.respuesta[0];
+					return respuesta[0];
 				}
 			}
 		}
 		return acierto(boleto);
-		
-
 
 	}
-	
+
 	public String acierto(int[] boleto) {
 		int aciertos = 0;
 		for (int i = 0; i < boleto.length; i++) {
@@ -106,15 +104,15 @@ public class ServidorTCP {
 			}
 		}
 		if (aciertos == 6) {
-			return this.respuesta[2];
+			return respuesta[2];
 		} else if (aciertos == 5) {
-			return this.respuesta[4];
+			return respuesta[4];
 		} else if (aciertos == 4) {
-			return this.respuesta[5];
+			return respuesta[5];
 		} else if (aciertos == 3) {
-			return this.respuesta[6];
+			return respuesta[6];
 		}
-		return this.respuesta[8];
+		return respuesta[8];
 
 	}
 
