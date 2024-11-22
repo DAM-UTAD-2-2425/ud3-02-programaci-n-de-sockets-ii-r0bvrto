@@ -93,7 +93,8 @@ public class ServidorTCP {
 		return acierto(boleto);
 
 	}
-
+	
+	//Con este metodo comprobamos los aciertos que tiene el boleto
 	public String acierto(int[] boleto) {
 		int aciertos = 0;
 		for (int i = 0; i < boleto.length; i++) {
